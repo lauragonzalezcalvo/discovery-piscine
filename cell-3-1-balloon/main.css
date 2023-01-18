@@ -14,14 +14,11 @@
 }
 
  .balloon-green{
-    background-color: green;
-    
+    background-color: green;   
 }
 
 .balloon-blue{
-    background-color: blue;
-  
-    
+    background-color: blue;  
 }
 
 .balloon-red{
@@ -33,5 +30,19 @@
 }
 
 .hidden-text {
-    display: none; 
+    display:none;
+}
+
+.hidden-btn{
+    display:none;
+}
+
+.text{
+    display:flex;
+    height:400px;
+    width:400px;
+    flex-direction: column;
+    
+
+
 }

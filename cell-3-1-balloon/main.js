@@ -2,6 +2,7 @@
 
 const balloon = document.querySelector (".js-balloon");
 const explodeText = document.querySelector (".js-explode-text");
+const btn = document.querySelector (".js-btn");
 
 let widthBalloon = 200;
 let heightBalloon = 200;
@@ -32,8 +33,8 @@ const colorBalloon = () => {
           balloon.classList.add("balloon-blue");
     }
     else if (balloon.classList.contains("balloon-blue")) {
-            balloon.classList.remove("balloon-blue")
-            balloon.classList.add("initial-balloon");
+             balloon.classList.remove("balloon-blue")
+             balloon.classList.add("initial-balloon");
     }
 
 
@@ -41,10 +42,17 @@ const colorBalloon = () => {
 
 const explodeBalloon = () => {
  if(widthBalloon === 420 && heightBalloon === 420){
-    balloon.classList.add("hidden-balloon");
-    explodeText.classList.remove("hidden-text")
-
- }
+     balloon.classList.add("hidden-balloon");
+     explodeText.classList.remove("hidden-text")
+     balloon.classList.remove("hidden-balloon");
+     explodeText.classList.add("hidden-text")
+     widthBalloon = 200;
+     heightBalloon = 200;
+     borderBalloon = 100;
+     balloon.style.width = `${widthBalloon}px`;
+     balloon.style.height = `${heightBalloon}px`;
+     balloon.style.borderRadius = `${borderBalloon}px`;
+     }
  
 }
 
@@ -52,8 +60,7 @@ const explodeBalloon = () => {
 const handleBalloon = (ev) => {
     increaseBalloon(ev);
     colorBalloon();
-    explodeBalloon();
-
+    explodeBalloon(); 
 }
 
 
