@@ -42,26 +42,31 @@ const colorBalloon = () => {
 
 const explodeBalloon = () => {
  if(widthBalloon === 420 && heightBalloon === 420){
-     balloon.classList.add("hidden-balloon");
-     explodeText.classList.remove("hidden-text")
-     balloon.classList.remove("hidden-balloon");
-     explodeText.classList.add("hidden-text")
-     widthBalloon = 200;
-     heightBalloon = 200;
-     borderBalloon = 100;
-     balloon.style.width = `${widthBalloon}px`;
-     balloon.style.height = `${heightBalloon}px`;
-     balloon.style.borderRadius = `${borderBalloon}px`;
-     }
+    balloon.classList.add("hidden-balloon");
+    explodeText.classList.remove("hidden-text")
+    
+ }
  
+}
+//función para resetear
+const handleReset = () => {
+    balloon.classList.remove("hidden-balloon");
+    explodeText.classList.add("hidden-text");
+    widthBalloon = 200;
+    heightBalloon = 200;
+    borderBalloon = 100;    
+    balloon.style.width = `${widthBalloon}px`;
+    balloon.style.height = `${heightBalloon}px`;
+    balloon.style.borderRadius = `${borderBalloon}px`; 
 }
 
 //funcion manejadora del evento 
 const handleBalloon = (ev) => {
     increaseBalloon(ev);
     colorBalloon();
-    explodeBalloon(); 
+    explodeBalloon();
 }
 
 
 balloon.addEventListener("click", handleBalloon)
+explodeText.addEventListener("click", handleReset)
