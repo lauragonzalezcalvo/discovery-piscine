@@ -57,19 +57,18 @@ function resultText (numberResult){
 
 // Funcion manejadora que ejecuta el evento click
 function handleClick (ev) {
-    ev.preventDefault()
-    
-    console.log(typeof (numberOneValue))
-    debugger;
-    if (typeof numberOneValue === "string"  && typeof numberTwoValue === "string" ) {  
-        result.innerHTML = "Es necesarios introducir dos números válidos";  
-        
-   } else {  
+    ev.preventDefault();
+
+    if (isNaN(numberOne.value) || isNaN(numberTwo.value)) {
+        console.log("entra");
+        result.innerHTML = "Es necesario introducir dos números válidos";     
+    }else{  
     const numberOneValue = parseInt(numberOne.value);
     const numberTwoValue = parseInt (numberTwo.value);
     const selectValue =  select.value;
     const numberResult = calculate  (numberOneValue, numberTwoValue, selectValue)
-    resultText (numberResult)
+    resultText (numberResult);
+    console.log(numberResult);
    }
 }
 
