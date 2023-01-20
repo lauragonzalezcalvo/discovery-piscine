@@ -19,13 +19,13 @@
 
       <label for="calculator">simbolos</label>
 
-      <select name="calculator" id="calculator">
+      <select name="calculator" id="calculator" class="js-select">
         <option value="choose">choose</option>
-        <option value="sum">+</option>
-        <option value="substract">-</option>
-        <option value="multiply">*</option>
-        <option value="divide">/</option>
-        <option value="percentage">%</option>
+        <option value="+">+</option>
+        <option value="-">-</option>
+        <option value="*">*</option>
+        <option value="/">/</option>
+        <option value="%">%</option>
       </select>
 
       <label for="name">number 2</label> 
@@ -35,7 +35,9 @@
         name="name"
         class="js-number-2"
       />
-    <input type="submit" value="Try me!" />
+    <input type="submit"  class="js-btn" value="Try me!" />
     </form>
+    <p>Resultado: <span class="js-result"></span></p>
+    <script src="main.js"></script>
   </body>
 </html>
