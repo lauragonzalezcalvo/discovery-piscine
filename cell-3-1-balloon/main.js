@@ -67,6 +67,38 @@ const handleBalloon = (ev) => {
     explodeBalloon();
 }
 
+//función para cambiar los colores y tamaño con el ratón
+
+const mouseOut =()=>{
+    if(widthBalloon > 200 && heightBalloon > 200 && balloon.classList.contains("initial-balloon")){
+        widthBalloon = widthBalloon -5
+        heightBalloon = heightBalloon -5
+        balloon.style.width = `${widthBalloon}px`;
+        balloon.style.height = `${heightBalloon}px`;
+        balloon.classList.contains("initial-balloon")
+        balloon.classList.remove("initial-balloon")
+        balloon.classList.add("balloon-green")
+    } else if(widthBalloon > 200 && heightBalloon > 200 && balloon.classList.contains("balloon-green")){
+        widthBalloon = widthBalloon -5
+        heightBalloon = heightBalloon -5
+        balloon.style.width = `${widthBalloon}px`;
+        balloon.style.height = `${heightBalloon}px`;
+        balloon.classList.contains("balloon-green");
+        balloon.classList.remove("balloon-green");
+        balloon.classList.add("balloon-blue");
+    
+    } else if(widthBalloon > 200 && heightBalloon > 200 && balloon.classList.contains("balloon-blue")){
+        widthBalloon = widthBalloon -5
+        heightBalloon = heightBalloon -5
+        balloon.style.width = `${widthBalloon}px`;
+        balloon.style.height = `${heightBalloon}px`;
+        balloon.classList.contains("balloon-blue");
+        balloon.classList.remove("balloon-blue");
+        balloon.classList.add("initial-balloon");
+    }
+}
+
 
 balloon.addEventListener("click", handleBalloon)
+balloon.addEventListener("mouseout", mouseOut) //evento para que cambie de color y de tamaño 
 explodeText.addEventListener("click", handleReset)
