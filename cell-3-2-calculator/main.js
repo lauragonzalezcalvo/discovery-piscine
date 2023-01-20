@@ -15,58 +15,64 @@ const select = document.querySelector (".js-select");
 4- Mostrar el resultado
 */
 
+// Funciones
+
 function calculate (numberOneValue, numberTwoValue, selectValue){
-    let  result 
+    let  result = ""
     if(selectValue === "+" ){
-        const resultSum = numberOneValue + numberTwoValue
+        result = numberOneValue + numberTwoValue
         
     }
     else if (selectValue === "-" ){
-        const resultSubstract = numberOneValue - numberTwoValue
-        console.log(resultSubstract)
+        result = numberOneValue - numberTwoValue
+        
     }
     else if (selectValue === "*" ){
-        const resultMultiply = numberOneValue * numberTwoValue
-        console.log(resultMultiply)
+        result = numberOneValue * numberTwoValue
+       
     }
     else if (selectValue === "/" ){
-        const resultDivide = numberOneValue / numberTwoValue
-        console.log(resultDivide)
+        result= numberOneValue / numberTwoValue
+        
     }
     else if (selectValue === "%" ){
-        const resultPorcentage= numberOneValue % numberTwoValue
-        console.log(resultPorcentage)
+        result = numberOneValue % numberTwoValue
+        
     }
+     
+return result 
+}
+
+function resultText (numberResult){
+    console.log(result)
+     result.innerHTML= `El resultado es ${numberResult}`;
 
 }
 
-function result (){
-    result.innerHTML= `El resultado es ${}`;
-
-}
-//     if (isNaN(x) || isNaN(y)) {  
-//         text = "Es necesarios introducir dos números válidos";  
-//       } else {  
 //         //si no ponemos parseFloat concatenaría x con y  
 //         suma=parseFloat(x)+parseFloat(y);  
 //         text= suma;  
 //       }  
     
 
-// Funciones
-
 // Funcion manejadora que ejecuta el evento click
 function handleClick (ev) {
-
+    ev.preventDefault()
+    
+    console.log(typeof (numberOneValue))
+    debugger;
+    if (typeof numberOneValue === "string"  && typeof numberTwoValue === "string" ) {  
+        result.innerHTML = "Es necesarios introducir dos números válidos";  
+        
+   } else {  
     const numberOneValue = parseInt(numberOne.value);
     const numberTwoValue = parseInt (numberTwo.value);
     const selectValue =  select.value;
-  
-    ev.preventDefault()
-    calculate (numberOneValue, numberTwoValue, selectValue)
-    result ()
-   
+    const numberResult = calculate  (numberOneValue, numberTwoValue, selectValue)
+    resultText (numberResult)
+   }
 }
 
 // Eventos
 btn.addEventListener("click", handleClick)
+
